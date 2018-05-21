@@ -1,8 +1,13 @@
 var http = require('http');
+var porta = 3000;
+var ip = "localhost";
 
 var server = http.createServer(function(req, res) {
-    res.end("<html><body><h1>Listando os Produtos</h1></body></html>");
-});
-server.listen(3000);
+    if (req.url == "/produtos") {
+        res.end("<html><body><h1>Request recebido!</h1></body></html>");
+    } else {
+        res.end("<html><body><h1>Home da Casa do Código</h1></body></html>");
+    }
+}).listen(porta, ip);
 
-console.log("servidor ta rodando");
+console.log("Server running at http://" + ip + ":" + porta + "/");
